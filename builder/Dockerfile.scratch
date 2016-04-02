@@ -1,0 +1,4 @@
+FROM fpco/haskell-scratch:integer-gmp
+
+COPY out/exec /opt/out/exec
+CMD ["/opt/out/exec"]

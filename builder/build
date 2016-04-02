@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -e
+
+stack setup --allow-different-user
+stack build --allow-different-user
+mkdir -p /opt/work/out
+cp "$(stack path --local-install-root --allow-different-user)/bin/simple-exe" /opt/work/out/exec
+
+echo "OPT/WORK!!!"
+ls /opt/work
+
+echo "OPT/WORK/OUT!!!"
+ls /opt/work/out
+
+cd /opt/work
+
+docker build -t haskell-scratch -f Dockerfile.scratch .
