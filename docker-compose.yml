@@ -4,9 +4,11 @@ volumes:
 
 services:
   builder:
-    build: ./builder
+    image: "${HASKELL_IMAGE}"
     volumes:
       - root-cache:/root/.stack
-      - ./work:/home/build
-      - /usr/local/bin/docker:/usr/local/bin/docker
       - /var/run/docker.sock:/var/run/docker.sock
+      - "${DOCKER_EXEC}:/usr/local/bin/docker"
+      - ./builder:/opt/builder
+      - ./work:/home/build
+    command: "/opt/builder/build ${PROJECT_EXEC} ${OUTPUT_CONTAINER}"

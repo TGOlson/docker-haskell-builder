@@ -1,11 +1,12 @@
 Spike on creating a simple haskell build system.
 
-Run `./build` to compile executable.
-Run `docker run -it haskell-scratch` to run compiled executable.
+#### Steps
+
+* Copy `.env.sample` to `.env` and change any necessary values.
+* Run `./build` to compile executable.
+* Run `docker run -it simple` to run compiled executable.
+
+Note: Haskell project in `work/` was generated using Stack's 'simple' template (command: `stack new simple work`).
 
 TODO:
-* Make use of environment variables to remove hard-coded values. Such as:
-  * haskell base image
-  * project name, executable name
-  * local docker path
 * How to handle multiple executables or running tests.

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+# Load the env file
+eval "$(cat .env)"
+
 docker-compose down || true
 docker rmi -f dockerhaskellbuilder_builder || true
 docker-compose up
